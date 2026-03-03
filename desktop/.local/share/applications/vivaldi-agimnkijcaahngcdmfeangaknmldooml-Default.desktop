@@ -1,0 +1,19 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=YouTube
+Exec=/opt/vivaldi/vivaldi --profile-directory=Default --app-id=agimnkijcaahngcdmfeangaknmldooml
+Icon=vivaldi-agimnkijcaahngcdmfeangaknmldooml-Default
+StartupWMClass=crx_agimnkijcaahngcdmfeangaknmldooml
+Actions=Explorar;Suscripciones
+Hidden=true
+
+[Desktop Action Explorar]
+Name=Explorar
+Exec=/opt/vivaldi/vivaldi --profile-directory=Default --app-id=agimnkijcaahngcdmfeangaknmldooml "--app-launch-url-for-shortcuts-menu-item=https://www.youtube.com/feed/explore?feature=app_shortcuts"
+
+[Desktop Action Suscripciones]
+Name=Suscripciones
+Exec=/opt/vivaldi/vivaldi --profile-directory=Default --app-id=agimnkijcaahngcdmfeangaknmldooml "--app-launch-url-for-shortcuts-menu-item=https://www.youtube.com/feed/subscriptions?feature=app_shortcuts"
+

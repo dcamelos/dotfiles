@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim
+GenericName=Editor de texto
+Comment=Editar archivos de texto con Neovim
+Exec=kitty -e /opt/nvim-linux-x86_64/bin/nvim %F
+Terminal=false
+Icon=nvim
+Categories=Development;TextEditor;
+Keywords=Text;Editor;
+MimeType=text/plain;
