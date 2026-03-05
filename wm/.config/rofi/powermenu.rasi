@@ -1,0 +1,121 @@
+/**
+ * Rofi Theme File - Adaptado para Powermenu con Mensaje
+ * Basado en el estilo de Aditya Shakya con tus colores
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+    click-to-exit:              true;
+}
+
+/*****----- Global Properties -----*****/
+/* Importamos shared para mantener la consistencia de colores de tu sistema */
+@import "shared.rasi"
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       800px; /* Ajustado para que el mensaje se vea bien */
+    border:                      2px solid;
+    border-radius:               20px;
+    border-color:                @selected;
+    cursor:                      "default";
+    background-color:            @background;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     20px;
+    margin:                      0px;
+    padding:                     30px;
+    background-color:            transparent;
+    /* Orden: Primero el saludo, luego iconos, luego el uptime */
+    children:                    [ "inputbar", "listview", "message" ];
+}
+
+/*****----- Inputbar (Saludo) -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    children:                    [ "dummy", "prompt", "dummy"];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+prompt {
+    enabled:                     true;
+    padding:                     10px;
+    border-radius:               10px;
+    background-color:            @background;
+    text-color:                  @foreground;
+    font:                        "BebasNeue 48";
+}
+
+/*****----- Message (Uptime) -----*****/
+message {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     10px;
+    border-radius:               10px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+}
+
+textbox {
+    font:                        "BebasNeue 18";
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+/*****----- Listview (Iconos) -----*****/
+listview {
+    enabled:                     true;
+    columns:                     5;
+    lines:                       1;
+    cycle:                       true;
+    spacing:                     15px;
+    background-color:            transparent;
+    cursor:                      "default";
+    fixed-height:                true;
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     25px 10px;
+    border-radius:               12px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+
+element-text {
+    font:                        "feather 48"; /* Tamaño de icono ideal */
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @background;
+}
+
+element hover {
+    background-color:            @selected;
+    text-color:                  @background;
+}
+

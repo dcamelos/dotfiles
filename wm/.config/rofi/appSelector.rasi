@@ -1,0 +1,146 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    modi:                        "window";
+    show-icons:                  true;
+    icon-theme:                  "Tela-circle";
+    
+    /* Esto obliga a Rofi a ser más agresivo buscando iconos */
+    window-match-fields:         "class,title,name,role";
+    
+    /* Cambia el formato para que Rofi use la clase como referencia de icono */
+    window-format:               "{c} {t}"; 
+}
+
+/*****----- Global Properties -----*****/
+@import                          "shared.rasi"
+* {
+    border-colour:               var(selected);
+    handle-colour:               var(foreground);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(background-alt);
+    normal-background:           var(background);
+    normal-foreground:           var(foreground);
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(background);
+    active-background:           var(active);
+    active-foreground:           var(background);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(background);
+    selected-urgent-background:  var(active);
+    selected-urgent-foreground:  var(background);
+    selected-active-background:  var(urgent);
+    selected-active-foreground:  var(background);
+    alternate-normal-background: var(background);
+    alternate-normal-foreground: var(foreground);
+    alternate-urgent-background: var(urgent);
+    alternate-urgent-foreground: var(background);
+    alternate-active-background: var(active);
+    alternate-active-foreground: var(background);
+}
+
+/*****----- Main Window -----*****/
+
+window {
+    enabled:                     true;
+    fullscreen:                  false;
+    width:                       800px;
+    transparency:                "real";
+    cursor:                      "default";
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      2px;
+    border-radius:               20px;
+    border-color:                @selected;
+    background-color:            transparent;
+}
+
+mainbox {
+    enabled:                     true;
+    children:                    [ "listview" ];
+    background-color:            @background;
+}
+
+listview {
+    enabled:                     true;
+    columns:                     5;         /* Máximo de columnas antes de crear nueva fila */
+    lines:                       1;         /* Empieza con una fila */
+    cycle:                       true;
+    dynamic:                     true;      /* CRÍTICO: Permite que el tamaño cambie */
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                false;     /* CRÍTICO: Permite que la ventana no sea siempre alta */
+    fixed-columns:               false;     /* CRÍTICO: Evita espacios vacíos si hay pocos elementos */
+    
+    /* Espaciado y relleno */
+    spacing:                     20px;
+    padding:                     20px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
+
+element {
+    enabled:                     true;
+    orientation:                 vertical;
+    spacing:                     10px;
+    padding:                     15px;
+    border-radius:               20px;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    children:                    [ "element-icon", "element-text" ];
+}
+
+@media(max-aspect-ratio: 1.8) {
+    element {
+        orientation:             vertical;
+    }
+}
+
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @background;
+}
+
+element-icon {
+    enabled:                     true;
+    size:                        4em;      /* Usa 'em' o 'px' para probar */
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+}
+
+element-text {
+    enabled:                     true;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+element normal.active {
+    background-color: @active; /* El color de "resaltado" */
+    text-color:       @background;
+}
+element selected.active {
+    background-color: @selected; /* Cuando pasas el cursor sobre el ya seleccionado */
+    text-color:       @background;
+}
+
+element hover {
+    background-color:            @selected;
+    text-color:                  @background;
+}

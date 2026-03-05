@@ -1,0 +1,105 @@
+;; Adaptación de gh0stzk para i3
+
+(defwidget cheatsheet []
+    (scroll :hscroll false :vscroll true :height 500
+        (box :class "cheatsheet" :orientation "v" :space-evenly "false"
+            (top)
+            (content)
+        )
+    )
+)
+
+(defwidget top []
+  (box :orientation "h" :space-evenly "false" :class "top-bar"
+    ;; Contenedor para el texto (se expande para empujar el botón)
+    (box :orientation "v" :spacing 0 :space-evenly "false" :hexpand "true"
+      (label :class "title" :text " ██████ ██   ██ ███████  █████  ████████      ███████ ██   ██ ███████ ███████ ████████
+██      ██   ██ ██      ██   ██    ██         ██      ██   ██ ██      ██         ██ 
+██      ███████ █████   ███████    ██         ███████ ███████ █████   █████      ██
+██      ██   ██ ██      ██   ██    ██              ██ ██   ██ ██      ██         ██
+ ██████ ██   ██ ███████ ██   ██    ██         ███████ ██   ██ ███████ ███████    ██")
+         )
+    ;; El botón de cierre
+    (button :class "close-btn" 
+            :valign "start" 
+            :onclick "killall eww" "󰅖") ;; 
+  )
+)
+
+(defwidget content []
+  (box :class "content" :orientation "h" :spacing 20 :space-evenly "true"
+    ;; COLUMNA 1: Sistema y Navegación
+    (box :orientation "v" :space-evenly "false" :spacing 1
+      (label :class "category-system" :text "Sistema Base")
+      (keybind :desc "Terminal" :keys "Mod + Enter")
+      (keybind :desc "App Launcher (Rofi)" :keys "Mod + Space")
+      (keybind :desc "Dmenu" :keys "Mod + D")
+      (keybind :desc "Cerrar Ventana" :keys "Mod + Q")
+      (keybind :desc "Captura Pantalla" :keys "Print")
+      
+      (label :class "category-workspaces" :text "Workspaces")
+      (keybind :desc "Cambiar a 1-10" :keys "Mod + 0-9")
+      (keybind :desc "Mover a 1-10" :keys "Mod + Shift + 0-9")
+
+      (label :class "category-nodes" :text "MODO RESIZE")
+      (keybind :desc "Crecer/Encoger" :keys " j / k / l / ; ")
+      (keybind :desc "Crecer/Encoger" :keys " ← / ↓ / ↑ / → ")
+      (keybind :desc "Salir Modo" :keys "Enter / Esc")
+    )
+
+    ;; COLUMNA 2: Ventanas y Layout
+    (box :orientation "v" :space-evenly "false" :spacing 1
+      (label :class "category-nodes" :text "Ventanas")
+      (keybind :desc "Enfocar" :keys "Mod +  j / k / l / ; ")
+      (keybind :desc "Mover" :keys "Mod + Shift+  j / k / l / ; ")
+      (keybind :desc "Enfocar" :keys "Mod +  ← / ↓ / ↑ / → ")
+      (keybind :desc "Mover" :keys "Mod + Shift+  ← / ↓ / ↑ / → ")
+      (keybind :desc "Fullscreen" :keys "Mod + F")
+      (keybind :desc "Flotante (Toggle)" :keys "Mod + T")
+      (keybind :desc "Enfoque Tiling/Float" :keys "Mod+Shift+T")
+      
+      (label :class "category-move" :text "Layout / División")
+      (keybind :desc "Dividir Horiz." :keys "Mod + H")
+      (keybind :desc "Dividir Vert." :keys "Mod + V")
+      (keybind :desc "Layout Stack" :keys "Mod + S")
+      (keybind :desc "Layout Tab" :keys "Mod + W")
+      (keybind :desc "Toggle Split" :keys "Mod + E")
+      (keybind :desc "Enfocar Padre" :keys "Mod + A")
+    )
+
+    ;; COLUMNA 3: Modos y Sesión
+    (box :orientation "v" :space-evenly "false" :spacing 1
+      (label :class "category-power" :text "Multimedia")
+      (keybind :desc "Volumen +/-/Mute" :keys "Teclas Audio")
+      (keybind :desc "Brillo +/-" :keys "Teclas Brillo")
+      (keybind :desc "Config. Pantallas" :keys "Mod + P")
+      
+      (label :class "category-others" :text "Modos De i3")
+      (keybind :desc "Modo Resize" :keys "Mod + R")
+      (keybind :desc "Modo Gaps" :keys "Mod + Shift + G")
+      (keybind :desc "Recargar Config" :keys "Mod + Shift + C")
+      (keybind :desc "Reiniciar i3" :keys "Mod + Shift + R")
+      (keybind :desc "Salir de i3" :keys "Mod + Shift + E")
+
+      (label :class "category-move" :text "MODO GAPS")
+      (keybind :desc "Seleccionar" :keys "o (outer) / i (inner)")
+      (keybind :desc "Aumentar/Dismin." :keys "+ / -")
+      (keybind :desc "Resetear (0)" :keys "0") (keybind :desc "Global" :keys "Shift + (+/-/0)")
+      (keybind :desc "Salir Modo" :keys "Esc")
+    )
+  )
+)
+(defwidget keybind [desc keys]
+  (box :orientation "h" :space-evenly "true" :class "key-row"
+    (label :class "keys" :xalign 0 :text desc)
+    (label :class "keys-alt" :xalign 1 :text keys)
+  )
+)
+
+(defwindow csheet
+    :monitor 0
+    :geometry (geometry :x "0%" :y "0%" :width "80%" :height "70%" :anchor "center")
+    :stacking "fg"
+    :windowtype "normal"
+    :wm-ignore false
+    (cheatsheet))

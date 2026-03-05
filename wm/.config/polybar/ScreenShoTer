@@ -1,0 +1,63 @@
+#!/bin/sh
+# Screenshoter - Versión Corregida
+
+dir="$HOME/Imágenes/Screenshots"
+[ -d "$dir" ] || mkdir -p "$dir"
+
+# Definir iconos
+s_full="󰹑"
+s_select="󰆞"
+s_in3="󰔝"
+s_in3select="󰔝 󰆞"
+s_all="󰍹"
+
+# Función Rofi mejorada
+rofi_cmd() {
+    rofi -dmenu \
+        -p "Captura" \
+        -mesg "Guardando en: $dir" \
+        -theme "$HOME/.config/rofi/Screenshot.rasi"
+}
+
+# Usamos un pipe limpio para pasar las opciones
+chosen=$(cat <<EOF | rofi_cmd
+$s_full
+$s_select
+$s_in3
+$s_in3select
+$s_all
+EOF
+)
+
+# Salir si el usuario presiona ESC
+if [ -z "$chosen" ]; then
+    exit 0
+fi
+
+# Lógica de ejecución
+case "$chosen" in
+    "$s_full")
+        # Captura pantalla completa (monitor actual)
+        sleep 0.5 && maim -u "$(date +%Y-%m-%d-%H%M%S).png" && mv *.png "$dir/" 
+        ;;
+    "$s_select")
+        # Selección de área
+        maim -s -u "$dir/Shot-$(date +%Y-%m-%d-%H%M%S).png"
+        ;;
+    "$s_in3")
+        sleep 3 && maim -u "$dir/Shot-$(date +%Y-%m-%d-%H%M%S).png"
+        ;;
+    "$s_in3select")
+         maim -s -d 3 "$dir/Shot-$(date +%Y-%m-%d-%H%M%S).png"
+        ;;
+    "$s_all")
+        sleep 0.5 && maim -u "$dir/Shot-$(date +%Y-%m-%d-%H%M%S).png"
+        ;;
+esac
+
+# Copiar al portapapeles la última imagen creada
+last_file=$(ls -t "$dir"/*.png | head -1)
+if [ -f "$last_file" ]; then
+    xclip -selection clipboard -t image/png -i "$last_file"
+    notify-send "Screenshot" "Guardada en $dir" -i "$last_file"
+fi

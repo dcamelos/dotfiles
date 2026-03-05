@@ -1,0 +1,89 @@
+@import "colors.scss";
+
+.cheatsheet {
+  background-color: $bg;
+  border-radius: 20px;
+  border: 2px solid $border;
+}
+
+.title {
+  font-family: "JetBrainsMono NF", "JetBrains Mono";
+  font-weight: 800;
+  font-size: 0.7rem; // Tamaño ajustado para el ASCII Art
+  color: $magenta;
+  margin: 20px 20px 0 20px;
+}
+
+.title-info {
+  font-family: "JetBrainsMono NF";
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: $fg;
+}
+
+.content {
+  margin: 10px 20px 20px 20px;
+}
+
+.key-row {
+  margin-bottom: 5px;
+  padding: 2px 5px;
+}
+
+.category-system, .category-workspaces, .category-nodes, 
+.category-move, .category-power, .category-others {
+  font-family: "JetBrainsMono NF";
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: $bg;
+  margin: 15px 0 8px 0;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.category-system { background-color: $red; }
+.category-workspaces { background-color: $magenta; }
+.category-nodes { background-color: $yellow; }
+.category-move { background-color: $archicon; }
+.category-power { background-color: $cyan; }
+.category-others { background-color: $green; }
+
+
+.keys {
+  font-family: BebasNeue;
+  font-size: 1.2rem;
+  color: $fg;
+}
+
+.keys-alt {
+  font-family: JetBrainsMono NF;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 1rem;
+  color: $fg;
+}
+// Estilo del scrollbar
+scrollbar trough slider {
+    background-color: $green;
+    min-width: 4px;
+    border-radius: 10px;
+}
+
+.top-bar {
+    padding: 10px;
+}
+
+.close-btn {
+    color: #ef5350; /* Color rojo */
+    font-size: 24px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    background: transparent;
+    border-radius: 5px;
+}
+
+.close-btn:hover {
+    background-color: rgba(239, 83, 80, 0.2);
+    color: #ff6e67;
+}

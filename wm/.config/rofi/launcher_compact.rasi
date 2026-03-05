@@ -1,0 +1,108 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+    display-dmenu:              " ";
+}
+
+/*****----- Global Properties -----*****/
+/* * { */
+    /* font:                        "JetBrainsMono Nerd Font 11"; */
+    /* background:                  #1E1E2E; /* Color oscuro tipo Catppuccin */ */
+    /* background-alt:              #313244; */
+    /* foreground:                  #CDD6F4; */
+    /* selected:                    #89B4FA; */
+    /* active:                      #A6E3A1; */
+    /* urgent:                      #F38BA8; */
+/* } */
+
+@import "shared.rasi"
+
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       300px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    enabled:                     true;
+    border:                      2px;
+    border-radius:               12px;
+    border-color:                @selected;
+    cursor:                      "default";
+    background-color:            @background;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     20px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Input Bar -----*****/
+inputbar {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    children:                    [ "prompt" ];
+}
+
+prompt {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       3;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     5px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     8px;
+    border-radius:               8px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @background;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+element hover {
+    background-color:            @selected;
+    text-color:                  @background;
+}
