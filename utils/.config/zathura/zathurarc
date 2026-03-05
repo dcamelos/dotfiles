@@ -1,0 +1,3 @@
+include "/home/david/.cache/wal/colors-zathura"
+set recolor "true"
+set recolor-keephue "true"
