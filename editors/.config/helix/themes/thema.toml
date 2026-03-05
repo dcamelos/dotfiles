@@ -1,0 +1,6 @@
+inherits = "tokyonight" # Hereda la base de otro tema
+
+"ui.text" = { fg = "#ffffff" }        # Color de texto principal
+"comment" = { fg = "#40FF40" }        # Color de los comentarios
+"ui.background" = { bg = "#000000" }  # Color de fondo
+

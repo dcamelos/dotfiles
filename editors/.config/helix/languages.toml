@@ -1,0 +1,17 @@
+
+# ~/.config/helix/languages.toml
+
+[[language]]
+name = "bash"
+file-types = ["sh", "bash", { glob = "config" }, { glob = "i3/config" }]
+# Esto tratará los archivos llamados 'config' como bash para i3
+
+[[language]]
+name = "ini"
+file-types = ["ini", { glob = "polybar/config" }, { glob = "polybar/config.ini" }]
+# Polybar suele usar formato INI
+
+[[language]]
+name = "css"
+file-types = ["css", "rasi"]
+# Los archivos .rasi de Rofi se verán con colores de CSS

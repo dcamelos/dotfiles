@@ -1,0 +1,9 @@
+"ui.background" = {{ }}
+"ui.text" = {{ fg = "{color15}" }}
+"ui.statusline" = {{ fg = "{color15}", bg = "{color8}" }}
+"ui.statusline.normal" = {{ fg = "{color0}", bg = "{color1}", modifiers = ["bold"] }}
+"ui.selection" = {{ bg = "{color1}" }}
+"keyword" = "{color1}"
+"function" = "{color1}"
+"string" = "{color2}"
+"variable" = "{color15}"
