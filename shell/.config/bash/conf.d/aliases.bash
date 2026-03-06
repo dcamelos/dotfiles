@@ -1,0 +1,7 @@
+alias nv='nvim'
+alias bat='batcat'
+alias fd='fdfind'
+alias exa='exa -G --icons --group-directories-first --color=always'
+alias pal='~/.config/polybar/palette.sh'
+alias dots='lazygit -p ~/.dotfiles'
+alias stowing='cd ~/.dotfiles && stow -v'

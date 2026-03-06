@@ -116,39 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias nv='nvim'
-alias bat='batcat'
-alias fd='fdfind'
-alias exa='exa -G --icons --group-directories-first --color=always'
-eval "$(zoxide init bash)"
-eval "$(/home/david/.local/bin/oh-my-posh init bash --config '/home/david/.cache/oh-my-posh/themes/negligible.omp.json' )"
-# eval "$(/home/david/.local/bin/oh-my-posh init bash --config  '/home/david/.config/polybar/miThema2.omp.json' )"
-. "$HOME/.cargo/env"
-
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-}
-
-alias pal='~/.config/polybar/palette.sh'
-
-# Importar la paleta de colores de pywal
-cat ~/.cache/wal/sequences
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-export PATH=~/.npm-global/bin:$PATH
-
-# lazygit
-lg()
-{
-    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
-
-    lazygit "$@"
-
-    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-            cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-            rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
-    fi
-}
+# CARGAR MÓDULOS PERSONALIZADOS
+if [ -d ~/.config/bash/conf.d ]; then
+    for file in ~/.config/bash/conf.d/*.bash; do
+        [ -r "$file" ] && . "$file"
+    done
+    unset file
+fi
