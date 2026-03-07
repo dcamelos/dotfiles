@@ -28,8 +28,20 @@ return {
       }
 
       for _, group in ipairs(groups) do
-        vim.api.nvim_set_hl(0, "CursorLine", { underline = true, bg = "none" })
+        vim.api.nvim_set_hl(0, group, { bg = "none" })
       end
+      -- 3. ARREGLO PARA LA LÍNEA DEL CURSOR (CursorLine)
+      -- Quitamos el fondo gris opaco y el subrayado blanco.
+      -- 'blend' hace que el color se mezcle y no tape las letras.
+      vim.api.nvim_set_hl(0, "CursorLine", {
+        link = "Visual",
+        -- bg = "#2a2e38", -- Un color oscuro que combine con tu fondo azulado
+        underline = false, -- Eliminamos la línea blanca molesta
+        blend = 20, -- Mezcla el color para que la sintaxis brille a través
+      })
+      local highlight_info = vim.api.nvim_get_hl(0, { name = "Keyword" })
+      -- Opcional: Resaltar el número de línea actual para saber dónde estás
+      vim.api.nvim_set_hl(0, "CursorLineNr", { fg = highlight_info.fg, bold = true })
     end,
   },
   {

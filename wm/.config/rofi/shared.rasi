@@ -1,10 +1,10 @@
 * {
     font: " BebasNeue 14";
-    background: #1e0d0dCC;
-    background-alt: #1e0d0dE0;
-    foreground: #c6c2c2;
-    selected: #639AC0;
-    active: #576D92;
-    urgent: #2D50B4;
-    text:  #c6c2c2;
+    background: #0d1920CC;
+    background-alt: #0d1920E0;
+    foreground: #c2c5c7;
+    selected: #6A6865;
+    active: #3C434A;
+    urgent: #333946;
+    text:  #c2c5c7;
 }
