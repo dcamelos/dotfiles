@@ -239,4 +239,8 @@ echo "Archivo de Helix actualizado en themes/gtk_theme.toml"
   polybar -c ~/.config/polybar/config.ini main &>/dev/null &
 ) &
 
+# En tu script de colores:
+wal -i "$1"
+xrdb -merge "$HOME/.cache/wal/colors.Xresources" # Forzar actualización de base de datos X11
+i3-msg reload
 echo "Componentes reiniciados en segundo plano."

@@ -86,15 +86,15 @@
   # Define the corner radius of the notification window
   corner_radius = 20
 
-highlight = "#3C434A"   
+highlight = "#73638C"   
 
 [urgency_low]
-    background = "#0d1920"
-    foreground = "#c2c5c7"
+    background = "#0e0c1d"
+    foreground = "#c2c2c6"
 [urgency_normal]
-    background = "#0d1920"
-    foreground = "#c2c5c7"
-    frame_color = "#6A6865"
+    background = "#0e0c1d"
+    foreground = "#c2c2c6"
+    frame_color = "#8C78A8"
 [urgency_critical]
-    background = "#333946"
-    foreground = "#0d1920"
+    background = "#615377"
+    foreground = "#0e0c1d"
