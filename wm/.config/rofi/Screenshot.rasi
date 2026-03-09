@@ -15,7 +15,8 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import "shared.rasi"
+// @import "shared.rasi"
+@import "~/.cache/wal/colors-rofi.rasi"
 
 /*
 USE_ICON=YES
@@ -33,7 +34,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      2px solid;
-    border-radius:               20px;
+    // border-radius:               20px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -121,7 +122,7 @@ element {
     enabled:                     true;
     padding:                     23px -80px;
     border:                      0px solid;
-    border-radius:               10px;
+    // border-radius:               10px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;

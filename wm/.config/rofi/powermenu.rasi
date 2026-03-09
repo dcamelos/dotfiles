@@ -11,7 +11,8 @@ configuration {
 
 /*****----- Global Properties -----*****/
 /* Importamos shared para mantener la consistencia de colores de tu sistema */
-@import "shared.rasi"
+// @import "shared.rasi"
+@import "~/.cache/wal/colors-rofi.rasi"
 
 /*****----- Main Window -----*****/
 window {
@@ -21,7 +22,7 @@ window {
     fullscreen:                  false;
     width:                       800px; /* Ajustado para que el mensaje se vea bien */
     border:                      2px solid;
-    border-radius:               20px;
+    // border-radius:               20px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -54,7 +55,7 @@ dummy {
 prompt {
     enabled:                     true;
     padding:                     10px;
-    border-radius:               10px;
+    // border-radius:               10px;
     background-color:            @background;
     text-color:                  @foreground;
     font:                        "BebasNeue 48";
@@ -65,7 +66,7 @@ message {
     enabled:                     true;
     margin:                      0px;
     padding:                     10px;
-    border-radius:               10px;
+    // border-radius:               10px;
     background-color:            @background-alt;
     text-color:                  @foreground;
 }
@@ -94,7 +95,7 @@ listview {
 element {
     enabled:                     true;
     padding:                     25px 10px;
-    border-radius:               12px;
+    // border-radius:               12px;
     background-color:            @background-alt;
     text-color:                  @foreground;
     cursor:                      pointer;

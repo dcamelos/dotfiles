@@ -2,14 +2,15 @@ configuration {
     show-icons:                     false;
 }
 
-@import "shared.rasi"
+// @import "shared.rasi"
+@import "~/.cache/wal/colors-rofi.rasi"
 
 window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
   	border:						            	2px;
-    border-radius:                  20px;
+    border-radius:                  0px; //20
     border-color:				          	@selected;
     width:                          460px;
     location:                       center;

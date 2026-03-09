@@ -1,5 +1,6 @@
 
-@import "shared.rasi"
+// @import "shared.rasi"
+@import "~/.cache/wal/colors-rofi.rasi"
 
 configuration {
     modi:                        "drun";
@@ -18,7 +19,7 @@ window {
     spacing:                     0px;
     padding:                     0px;
     border:                      2px;
-    border-radius:               20px;
+    // border-radius:               20px;
     border-color:                @selected;
     background-color:            transparent;
 }

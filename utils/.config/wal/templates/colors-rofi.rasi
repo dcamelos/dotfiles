@@ -1,0 +1,10 @@
+* {
+    font: "BebasNeue 14";
+    background: {background}CC;      /* El color de fondo con transparencia */
+    background-alt: {background}E0;  /* Fondo alternativo un poco más opaco */
+    foreground: {foreground};        /* Color de texto principal */
+    selected: {color2};             /* Usualmente un color vibrante para la selección */
+    active: {color1};               /* Color para estados activos */
+    urgent: {color3};               /* Color para alertas/urgente */
+    text: {foreground};
+}

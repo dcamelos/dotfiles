@@ -15,7 +15,8 @@ configuration {
     /* urgent:                      #F38BA8; */
 /* } */
 
-@import "shared.rasi"
+// @import "shared.rasi"
+@import "~/.cache/wal/colors-rofi.rasi"
 
 
 /*****----- Main Window -----*****/

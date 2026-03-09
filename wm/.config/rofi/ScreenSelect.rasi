@@ -6,7 +6,8 @@ configuration {
     drun-display-format:         "{name}";
 }
 
-@import "shared.rasi"
+// @import "shared.rasi"
+@import "~/.cache/wal/colors-rofi.rasi"
 
 window {
     enabled:                     true;
@@ -17,7 +18,7 @@ window {
     spacing:                     0px;
     padding:                     0px;
     border:                      2px;
-    border-radius:               20px;
+    // border-radius:               20px;
     border-color:                @selected;
     background-color:            transparent;
 }
@@ -51,7 +52,7 @@ element {
     orientation:                 vertical; /* Forzamos vertical para que el icono esté arriba */
     spacing:                     10px;     /* Espacio entre icono y texto */
     padding:                     15px;
-    border-radius:               20px;
+    // border-radius:               20px;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @foreground;
