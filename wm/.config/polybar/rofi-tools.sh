@@ -9,13 +9,13 @@ chosen=$(echo -e "$options" | rofi -dmenu -i -selected-row -1 -p " Herramientas 
 
 # Lógica de ejecución
 case "$chosen" in
-    "🖼️ Wallpaper")
-        /home/$USER/.config/polybar/rofi-wallpaper-i3.sh
-        ;;
-    "🎨 Themes")
-        /home/$USER/.config/polybar/rofi-themes-i3.sh
-        ;;
-    "📝 Cheatsheet")
-        eww open csheet
-        ;;
+"🖼️ Wallpaper")
+  /home/$USER/.config/polybar/rofi-wallpaper-i3.sh
+  ;;
+"🎨 Themes")
+  /home/$USER/.config/polybar/rofi-themes-i3.sh
+  ;;
+"📝 Cheatsheet")
+  eww open csheet
+  ;;
 esac

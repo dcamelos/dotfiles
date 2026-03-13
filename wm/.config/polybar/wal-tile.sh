@@ -10,7 +10,11 @@ fi
 # 1. Generar colores con Pywal
 # -n: evita que wal cambie el fondo (lo haremos nosotros si prefieres)
 # -q: modo silencioso
-wal -i "$1"
+wal --cols16 --backend colorz -i "$1"
+
+if [ -f "$HOME/.cache/wal/sequences" ]; then
+  cat "$HOME/.cache/wal/sequences"
+fi
 
 # 2. Cargar las variables de colores recién generadas
 source "$HOME/.cache/wal/colors.sh"
@@ -19,30 +23,36 @@ source "$HOME/.cache/wal/colors.sh"
 
 # Polybar
 
+# Primero borra el archivo actual si ya existe
+rm ~/.dotfiles/wm/.config/polybar/colors.ini
+
+# Crea el enlace simbólico
+cp ~/.cache/wal/colors-polybar.ini ~/.dotfiles/wm/.config/polybar/colors.ini
+
 # Extraemos el color de fondo sin el '#'
-BG_HEX=$(echo "$background" | sed 's/#//')
-
-cat <<EOF >~/.config/polybar/colors.ini
-[colors]
-background = #00${BG_HEX}
-window-background = #CC${background:1}
-background-alt = ${color8}
-foreground = ${foreground}
-border-color = ${color4}
-primary = ${color4}
-secondary = ${color2}
-text = ${foreground}
-alert = ${color1}
-disabled = #707880
-
- 
-aurora-blue = ${color4}
-aurora-green = ${color2}
-aurora-yellow = ${color3}
-aurora-orange =  ${color1}
-aurora-violet = ${color4}
-
-EOF
+# BG_HEX=$(echo "$background" | sed 's/#//')
+#
+# cat <<EOF >~/.config/polybar/colors.ini
+# [colors]
+# background = #00${BG_HEX}
+# window-background = #CC${background:1}
+# background-alt = ${color8}
+# foreground = ${foreground}
+# border-color = ${color4}
+# primary = ${color4}
+# secondary = ${color2}
+# text = ${foreground}
+# alert = ${color1}
+# disabled = #707880
+#
+#
+# aurora-blue = ${color4}
+# aurora-green = ${color2}
+# aurora-yellow = ${color3}
+# aurora-orange =  ${color1}
+# aurora-violet = ${color4}
+#
+# EOF
 
 # Rofi
 # cat <<EOF >~/.config/rofi/shared.rasi
@@ -243,11 +253,10 @@ echo "Archivo de Helix actualizado en themes/gtk_theme.toml"
   killall -q polybar
   while pgrep -u $UID -x polybar >/dev/null; do sleep 0.2; done
   # IMPORTANTE: Asegúrate de que el nombre de la barra sea 'main' o cámbialo aquí
-  polybar -c ~/.config/polybar/config.ini main &>/dev/null &
+  polybar -c ~/.dotfiles/wm/.config/polybar/config-i3.ini main &>/dev/null &
 ) &
 
 # En tu script de colores:
-wal -i "$1"
 xrdb -merge "$HOME/.cache/wal/colors.Xresources" # Forzar actualización de base de datos X11
 i3-msg reload
 echo "Componentes reiniciados en segundo plano."

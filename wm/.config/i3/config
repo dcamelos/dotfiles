@@ -363,6 +363,8 @@ bindsym $mod+c exec --no-startup-id clipcat-menu
  
 bindsym $mod+m exec --no-startup-id ~/.config/polybar/rofi-tools.sh
 
+bindsym $mod+z exec --no-startup-id ~/.config/polybar/rofi_zathura.sh
+
 exec_always --no-startup-id  ~/.config/polybar/random-wall.sh
 
 # --- COLORES DESDE XRESOURCES (PYWAL) ---

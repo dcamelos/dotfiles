@@ -1,50 +1,50 @@
 # --- INTERFAZ DE USUARIO ---
 "ui.background" = { }
-"ui.text" = { fg = "#c2c2c6"}
-"ui.window" = { fg = "#5b5b70" }
-"ui.help" = { bg = "#5b5b70", fg = "#c2c2c6"}
+"ui.text" = { fg = "#c7c3c2"}
+"ui.window" = { fg = "#725f5d" }
+"ui.help" = { bg = "#725f5d", fg = "#c7c3c2"}
 
-"ui.statusline" = { fg = "#c2c2c6", bg = "#5b5b70" }
-"ui.statusline.inactive" = { fg = "#707880", bg = "#0c0c1c"}
-"ui.statusline.normal" = { fg = "#0c0c1c", bg = "#8F6044", modifiers = ["bold"] }
-"ui.statusline.insert" = { fg = "#0c0c1c", bg = "#9B572A", modifiers = ["bold"] }
-"ui.statusline.select" = { fg = "#0c0c1c", bg = "#AC4A34", modifiers = ["bold"] }
+"ui.statusline" = { fg = "#c7c3c2", bg = "#725f5d" }
+"ui.statusline.inactive" = { fg = "#707880", bg = "#20100e"}
+"ui.statusline.normal" = { fg = "#20100e", bg = "#57657f", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "#20100e", bg = "#878760", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "#20100e", bg = "#648490", modifiers = ["bold"] }
 
-"ui.virtual.indent-guide" = { fg = "#5b5b70" }
+"ui.virtual.indent-guide" = { fg = "#725f5d" }
 "ui.virtual.inlay-hint" = { fg = "#707880" }
 
 # --- SOLUCIÓN AL CONTRASTE ---
-"ui.selection" = { fg = "#0c0c1c", bg = "#8F6044" }
-"ui.selection.primary" = { fg = "#0c0c1c", bg = "#B9A751" } # Un color distinto para la selección principal
-"ui.cursor" = { fg = "#0c0c1c", bg = "#c2c2c6"}
-"ui.cursor.match" = { fg = "#8F6044", modifiers = ["underline"] }
+"ui.selection" = { fg = "#20100e", bg = "#57657f" }
+"ui.selection.primary" = { fg = "#20100e", bg = "#876a81" } # Un color distinto para la selección principal
+"ui.cursor" = { fg = "#20100e", bg = "#c7c3c2"}
+"ui.cursor.match" = { fg = "#57657f", modifiers = ["underline"] }
 
-"ui.menu" = { fg = "#c2c2c6", bg = "#5b5b70" }
-"ui.menu.selected" = { fg = "#0c0c1c", bg = "#8F6044" }
-"ui.popup" = { bg = "#5b5b70" }
+"ui.menu" = { fg = "#c7c3c2", bg = "#725f5d" }
+"ui.menu.selected" = { fg = "#20100e", bg = "#57657f" }
+"ui.popup" = { bg = "#725f5d" }
 "ui.linenr" = { fg = "#707880" }
-"ui.linenr.selected" = { fg = "#8F6044", modifiers = ["bold"] }
+"ui.linenr.selected" = { fg = "#57657f", modifiers = ["bold"] }
 
 # --- SINTAXIS (Mapeo de lógica de colores) ---
-"keyword" = "#8F6044"
-"variable" = "#c2c2c6"
-"variable.parameter" = "#c2c2c6"
-"function" = "#8F6044"
-"string" = "#9B572A"
-"constant" = "#AC4A34"
-"type" = "#AC4A34"
+"keyword" = "#57657f"
+"variable" = "#c7c3c2"
+"variable.parameter" = "#c7c3c2"
+"function" = "#57657f"
+"string" = "#878760"
+"constant" = "#648490"
+"type" = "#648490"
 "comment" = { fg = "#707880", modifiers = ["italic"] }
-"operator" = "#8F6044"
+"operator" = "#57657f"
 "punctuation" = "#707880"
 
 # Diagnósticos
-"error" = "#34544F"
-"warning" = "#AC4A34"
-"info" = "#8F6044"
-"hint" = "#9B572A"
+"error" = "#92544f"
+"warning" = "#648490"
+"info" = "#57657f"
+"hint" = "#878760"
 
 [palette]
 # Colores base para uso rápido
-theme_bg = "#0c0c1c"
-theme_fg = "#c2c2c6"
-accent = "#8F6044"
+theme_bg = "#20100e"
+theme_fg = "#c7c3c2"
+accent = "#57657f"
