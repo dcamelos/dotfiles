@@ -97,7 +97,7 @@ corner_radius = 0 #20
 [urgency_normal]
     background = "{background}"
     foreground = "{foreground}"
-    frame_color = "{color4}"
+    frame_color = "{color2}"
 
 [urgency_critical]
     background = "{color1}"

@@ -87,19 +87,19 @@ class = Dunst
 corner_radius = 0 #20
 
     # --- Colores dinámicos ---
-    highlight = "#878760"
-    frame_color = "#878760" 
+    highlight = "#8d9092"
+    frame_color = "#8d9092" 
 
 [urgency_low]
-    background = "#20100e"
-    foreground = "#c7c3c2"
+    background = "#1e110d"
+    foreground = "#c6c3c2"
 
 [urgency_normal]
-    background = "#20100e"
-    foreground = "#c7c3c2"
-    frame_color = "#57657f"
+    background = "#1e110d"
+    foreground = "#c6c3c2"
+    frame_color = "#8d9092"
 
 [urgency_critical]
-    background = "#92544f"
-    foreground = "#20100e"
-    frame_color = "#92544f"
+    background = "#844e3c"
+    foreground = "#1e110d"
+    frame_color = "#844e3c"
