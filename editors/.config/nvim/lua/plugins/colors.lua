@@ -64,4 +64,13 @@ return {
       })
     end,
   },
+  -- NUEVO: Twilight
+  {
+    "folke/twilight.nvim",
+    config = function()
+      require("twilight").setup({
+        dimming = { alpha = 0.4 }, -- Ajusta esto según qué tan oscuro quieras el fondo
+      })
+    end,
+  },
 }
