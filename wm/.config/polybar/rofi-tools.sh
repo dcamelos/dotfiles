@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Definir opciones
-options="🖼️ Wallpaper\n🎨 Themes\n📝 Cheatsheet"
+options="🖼️ Wallpaper\n🎨 Themes\n📐 Bars\n📝 Cheatsheet"
 
 # Lanzar Rofi y capturar la elección
 # El parámetro -selected-row -1 evita que la primera línea esté marcada al abrir
@@ -14,6 +14,9 @@ case "$chosen" in
   ;;
 "🎨 Themes")
   /home/$USER/.config/polybar/rofi-themes-i3.sh
+  ;;
+"📐 Bars")
+  /home/$USER/.config/polybar/bars-selector.sh
   ;;
 "📝 Cheatsheet")
   eww open csheet
