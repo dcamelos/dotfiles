@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#63 lineas
 # 1. Rutas
 WALLPAPER_DIR="$HOME/Imágenes/wallpapers"
 ROFI_THEME="$HOME/.config/rofi/WallSelect.rasi"
