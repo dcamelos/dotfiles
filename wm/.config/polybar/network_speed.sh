@@ -8,24 +8,24 @@ BITRATE=$(iw dev wlp2s0 link | grep 'tx bitrate' | awk '{print $3}')
 SIGNAL_DBM=$(iw dev wlp2s0 link | grep 'signal' | awk '{print $2}')
 
 if [ -z "$BITRATE" ]; then
-    echo  "%{T4}󰤮 %{T-}Offline"
+  echo "%{T4}󰤮 %{T-}%{T6}offline%{T-}%{F-}"
 else
-    # Lógica para elegir el icono según la potencia (dBm)
-    # Valores típicos: -30 (excelente) a -80 (pobre)
-    if [ "$SIGNAL_DBM" -ge -50 ]; then
-        ICON="%{T4}󰤨%{T-}"  # Excelente
-    elif [ "$SIGNAL_DBM" -ge -60 ]; then
-        ICON="%{T4}󰤥%{T-}"  # Buena
-    elif [ "$SIGNAL_DBM" -ge -70 ]; then
-        ICON="%{T4}󰤢%{T-}"  # Regular
-    elif [ "$SIGNAL_DBM" -ge -80 ]; then
-        ICON="%{T4}󰤟%{T-}"  # Mala
-    else
-        ICON="%{T4}󰤯%{T-}"  # Muy mala
-    fi
+  # Lógica para elegir el icono según la potencia (dBm)
+  # Valores típicos: -30 (excelente) a -80 (pobre)
+  if [ "$SIGNAL_DBM" -ge -50 ]; then
+    ICON="%{T4}󰤨%{T-}" # Excelente
+  elif [ "$SIGNAL_DBM" -ge -60 ]; then
+    ICON="%{T4}󰤥%{T-}" # Buena
+  elif [ "$SIGNAL_DBM" -ge -70 ]; then
+    ICON="%{T4}󰤢%{T-}" # Regular
+  elif [ "$SIGNAL_DBM" -ge -80 ]; then
+    ICON="%{T4}󰤟%{T-}" # Mala
+  else
+    ICON="%{T4}󰤯%{T-}" # Muy mala
+  fi
 
-    # Resultado: Icono + Bitrate redondeado
-    echo "$ICON ${BITRATE%.*} Mb/s"
-    # echo "$ICON ${BITRATE%.*}K"
+  # Resultado: Icono + Bitrate redondeado
+  echo "$ICON %{T6}${BITRATE%.*} Mb/s%{T-}"
+  # echo "$ICON %{T6}${BITRATE%.*} Mb/s%{T-}"
 
 fi
