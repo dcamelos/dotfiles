@@ -20,6 +20,10 @@ fi
 source "$HOME/.cache/wal/colors.sh"
 
 # --- 3. EXPORTAR A CONFIGURACIONES ---
+# EWW
+rm ~/.dotfiles/wm/.config/eww/colors.scss
+
+cp ~/.cache/wal/colors.scss ~/.dotfiles/wm/.config/eww/colors.scss
 
 # Polybar
 
