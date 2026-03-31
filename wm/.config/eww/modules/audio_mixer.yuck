@@ -1,0 +1,67 @@
+;; ==========================================
+;; MODULO: AUDIO MIXER (FIXED FOR WEBAPPS)
+;; ==========================================
+
+;; Consultamos el script cada segundo para actualizar volúmenes y estados
+(defpoll app_volumes :interval "1s" "scripts/audio_mixer.py")
+
+(defwidget mixer-layout []
+  (box :class "mixer-bg" :orientation "v" :space-evenly false :spacing 12
+    
+    ;; CABECERA: Título y Botón de Cierre
+    (box :orientation "h" :space-evenly false :class "mixer-header"
+      (label :class "mixer-title" :text "Audio Mixer" :hexpand true :halign "start")
+      (button :class "close-btn" 
+              :onclick "killall eww" 
+              "󰅖")
+    )
+
+    ;; CUERPO: Lista de aplicaciones con Scroll
+    (scroll :vscroll true :height 150 :class "mixer-scroll"
+      (box :orientation "v" :spacing 18 :space-evenly false
+        (for app in app_volumes
+          (box :class "mixer-row" :orientation "h" :space-evenly false :spacing 12
+            
+            ;; BOTÓN MUTE (Cambia según el estado)
+            (button :onclick "python3 scripts/audio_mixer.py --toggle-mute ${app.id}"
+                    :class "mixer-icon-btn"
+              (label :text {app.mute ? "󰝟" : "󰕾"} 
+                     :class {app.mute ? "icon-muted" : "icon-active"}))
+            
+            ;; CONTENEDOR CENTRAL (Info + Slider)
+            (box :orientation "v" :hexpand true :space-evenly false
+              (box :orientation "h" :space-evenly false :spacing 10
+                
+                ;; NOMBRE DE APP (CORREGIDO: Ahora usa search_name para WebApps)
+                (button :onclick "python3 scripts/audio_mixer.py --focus-app ${app.search_name}"
+                        :class {app.status == "playing" ? "app-name-btn" : "app-name-btn paused"}
+                        :tooltip "Enfocar ventana de ${app.name}"
+                  (label :text {app.name} :halign "start" :limit-width 58))
+                
+                ;; BOTÓN PLAY/PAUSE (Controlado por playerctl)
+                (button :onclick "python3 scripts/audio_mixer.py --toggle-play ${app.player_name}"
+                        :class {app.status == "playing" ? "play-btn playing" : "play-btn paused"}
+                  (label :text {app.status == "playing" ? "󰏤" : "󰐊"}))
+              )
+              
+              ;; BARRA DE VOLUMEN (Slider)
+              (scale :class "mixer-slider"
+                     :min 0 
+                     :max 101 
+                     :value {app.volume}
+                     :onchange "python3 scripts/audio_mixer.py --set-vol ${app.id} {}")
+            )
+            
+            ;; INDICADOR DE PORCENTAJE
+            (label :text "${app.volume}%" :class "mixer-perc")
+          )
+        )
+      )
+    )
+    
+    ;; PIE DE PÁGINA
+    (button :class "mixer-btn" 
+            :onclick "pavucontrol &" 
+            "Pavucontrol")
+  )
+)
