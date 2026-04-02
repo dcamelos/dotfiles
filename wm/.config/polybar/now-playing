@@ -10,23 +10,27 @@ from unicodedata import east_asian_width
 message_display_len = 20
 
 # (int) : Font index of polybar. this value should be 1 more than the font value specified in polybar config.
-font_index = 1
+font_index = 6
 
 # (float) : Update speed of the text in seconds.
 update_delay = 0.3
 
 # (list) : list of chars containing previous, play, pause, next glyphs for media controls in respective order
-control_chars = ['','','','']
+control_chars = ['󰼨','󰼛','','󰼧']
 
 # (dict) : dict of char icons to display as prefix.
 # If player name is available as key, then use the corressponding icon,
 # else default key value.
-# example:
+# example: 
 display_player_prefix = {
-    "spotify":  '',
-    "firefox":  '',
-    "brave":  '',
-    "default":  ''
+    # "spotify":  '',
+    # "firefox":  '',
+    # "brave":  '',
+    # "default":  ''
+    "spotify":  '',
+    "firefox":  '',
+    "brave":  '',
+    "default":  ''
 }
 
 # (list) : list of metadata fields based on mpris sepecification.
