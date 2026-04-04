@@ -104,7 +104,7 @@ scrollbar trough slider {
 
 .mixer-bg {
     background-color: $bg;
-    border: 2px solid $border;
+    // border: 2px solid $border;
     padding: 20px;
     // border-radius: 15px;
 }
@@ -197,7 +197,7 @@ scale {
 .app-name-btn {
     font-size: 1.45rem;
     font-family: BebasNeue, sans-serif;
-    color: $blue; // Cambiamos a un color que sugiera "link" o interacción
+    color: $fg; // Cambiamos a un color que sugiera "link" o interacción
     transition: all 0.2s;
     border-radius: 4px;
     padding: 2px 4px;
@@ -212,4 +212,91 @@ scale {
         color: $yellow;
         &:hover { background-color: rgba($yellow, 0.1); }
     }
+}
+
+.music-card {
+  background-color: $bg;
+  padding: 15px 20px 20px 20px;
+}
+
+.album-art {
+  min-width: 210px;
+  min-height: 110px;
+  border-radius: 15px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.music-info {
+  
+  .title {
+    font-size: 1.45rem;
+    font-family: BebasNeue, sans-serif;
+    font-weight: bold;
+    color: $fg;
+margin-bottom: 20px;
+  }
+  
+  .artist {
+    font-family: BebasNeue, sans-serif;
+    font-size:  1.3rem;
+    color: $bg-alt;
+    margin-bottom: 20px;
+  }
+}
+
+.controls {
+
+  margin-bottom: 20px;
+  button {
+    font-size: 18pt;
+    color: $green;
+    &:hover { color: $yellow; }
+  }
+}
+
+.progress-bar {
+/* Estilo de la parte llena */
+  highlight {
+    background: linear-gradient(to right, $blue,$cyan );
+    border-radius: 10px;
+  }
+  background-color: $fg;
+  min-height: 6px;
+  border-radius: 10px;
+slider {
+    all: unset;
+    min-height: 0;
+    min-width: 0;
+  }
+trough {
+    background-color: $fg;
+    border-radius: 10px;
+    min-height: 12px; // Un poco más gruesa para que se vea bien
+    min-width: 200px;
+  }
+}
+
+.top-bar {
+  margin-bottom: -10px; /* Ajuste para que no empuje demasiado el contenido */
+  
+  .icon-btn {
+    font-family: "JetBrainsMono NF";
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 8px;
+    transition: all 0.2s;
+
+    &.reload {
+      color: $blue;
+      &:hover { background-color: rgba($blue, 0.2); }
+    }
+
+    &.close {
+      color: $red;
+      &:hover { background-color: rgba($red, 0.2); }
+    }
+  }
 }

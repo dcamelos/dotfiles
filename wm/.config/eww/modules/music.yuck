@@ -1,0 +1,25 @@
+(defwidget music_player []
+  (box :class "music-container" :orientation "h" :space-evenly false :spacing 20
+    ;; Carátula del álbum
+    (box :class "album-art" 
+         :style "background-image: url('${music_art}');")
+
+    ;; Información y controles
+    (box :orientation "v" :space-evenly false :valign "center" :hexpand true
+      (label :class "song-title" :text music_title :limit-width 20 :halign "start")
+      (label :class "song-artist" :text music_artist :limit-width 25 :halign "start")
+
+      ;; Controles de reproducción
+      (box :class "music-controls" :spacing 15 :halign "center"
+        (button :onclick "playerctl previous" "󰒮")
+        (button :onclick "playerctl play-pause" 
+          {music_status == "Playing" ? "󰏤" : "󰐊"})
+        (button :onclick "playerctl next" "󰒭"))
+
+      ;; Barra de progreso
+      (scale :class "music-bar"
+             :min 0 :max 101 :value music_perc
+             :active false)
+    )
+  )
+)

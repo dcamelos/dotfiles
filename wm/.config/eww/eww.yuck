@@ -23,3 +23,54 @@
                       :anchor "center")
   :stacking "fg"
   (mixer-layout))
+
+;; Variables dinámicas
+(defpoll music_art    :interval "2s" "scripts/music_info.sh --art")
+(defpoll music_title  :interval "1s" "scripts/music_info.sh --title")
+(defpoll music_artist :interval "1s" "scripts/music_info.sh --artist")
+(defpoll music_status :interval "1s" "scripts/music_info.sh --status")
+(defpoll music_perc   :interval "1s" "scripts/music_info.sh --perc")
+
+;; Widget adaptado
+(defwidget music_player []
+  (box :class "music-card" :orientation "h" :space-evenly false :spacing 25 
+    (box :class "album-art" 
+         :style "background-image: url('${music_art}');")
+
+    (box :class "music-info" :orientation "v" :space-evenly false :hexpand true :valign "center"
+  (label :class "title" 
+         :text music_title 
+         :limit-width 20 
+         :halign "center")  ;; <--- Cambiado a center
+  
+  (label :class "artist" 
+         :text music_artist 
+         :limit-width 25 
+         :halign "center")
+
+      (box :class "controls" :halign "center" :spacing 20
+        (button :onclick "scripts/music_info.sh --prev" "󰒮")
+        (button :onclick "scripts/music_info.sh --toggle" 
+          {music_status == "Playing" ? "󰏤" : "󰐊"})
+        (button :onclick "scripts/music_info.sh --next" "󰒭"))
+
+      (scale :class "progress-bar"
+       :min 0 
+       :max 101 
+       :value music_perc
+       :active true  ;; <--- Ahora es interactivo
+       :onchange "scripts/music_info.sh --set {}") ;; <--- Envía el valor al script
+    )
+  )
+)
+(defwindow music_test
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "-37%"
+                               :width "500px"
+                               :height "150px"
+                               :anchor "center")
+           :stacking "fg"
+           :windowtype "normal"
+           :wm-ignore false
+  (music_player))
