@@ -103,3 +103,11 @@ corner_radius = 0 #20
     background = "{color1}"
     foreground = "{background}"
     frame_color = "{color1}"
+
+# --- Reglas de Filtrado (SIEMPRE AL FINAL) ---
+[kitty_icon]
+    # Atrapa si la app es kitty O si el título contiene KITTY o kitty
+    appname = *kitty*
+    summary = "*KITTY*"
+    summary = "*kitty*"
+    new_icon = /home/david/.dotfiles/desktop/.local/share/icons/iconos_personalizados/kitty-light.png
