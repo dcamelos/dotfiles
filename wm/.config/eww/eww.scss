@@ -220,13 +220,13 @@ scale {
 }
 
 .album-art {
-  min-width: 210px;
-  min-height: 110px;
-  border-radius: 15px;
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 50%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 .music-info {
